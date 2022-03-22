@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $datas = Category::all();
+        return view('category.index', compact('datas'));
     }
 
     /**
@@ -81,5 +82,20 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+    }
+    public function showlist($idcategory)
+    {
+        $data = Category::find($idcategory);
+        $nama_category = $data->name;
+
+        $product = $data->products;
+        $total_data = 0;
+        if($product){
+            $total_data = $product->count();
+        }
+        else{
+            $total_data = 0;
+        }
+        return view('report.list_medicine_by_category',['data'=>$product,'id_category'=>$idcategory,'nama_category'=>$nama_category,'total_data'=>$total_data]);
     }
 }

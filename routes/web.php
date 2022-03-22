@@ -40,3 +40,9 @@ Route::get('greeting', function () {
 
 Route::resource('obat', 'MedicineController');
 Route::resource('kategori_obat', 'CategoryController');
+
+Route::get('report', function(){
+    return view('report.index',['page_name'=>'Reporting']);
+    
+});
+
