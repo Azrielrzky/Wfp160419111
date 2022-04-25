@@ -1,8 +1,5 @@
 @extends('layouts.conquer2')
 
-@section('title')
-  Daftar Kategori Obat
-@endsection
 
 @section('content')
   <h2>List Medicines</h2>
